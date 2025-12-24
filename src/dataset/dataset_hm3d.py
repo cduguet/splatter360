@@ -158,9 +158,9 @@ class DatasetHM3D(IterableDataset):
                 #     target_indices = target_indices[:clip_length] # clip length
                 #     print("context_indices too long, might cause OOM! clip video")
                     
-                except ValueError:
+                except ValueError as e:
                     # Skip because the example doesn't have enough frames.
-                    print("Skip because the example doesn't have enough frames.")
+                    print(f"Skip because the example doesn't have enough frames. Error: {e}")
                     continue
 
                 # Skip the example if the field of view is too wide.
